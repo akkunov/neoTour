@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+
 const initialState = []
 const tourSlice  = createSlice({
     name: 'tour',
@@ -9,5 +10,4 @@ const tourSlice  = createSlice({
 
     }
 })
-
 export default tourSlice.reducer

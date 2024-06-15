@@ -1,0 +1,27 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    position: relative;
+}
+.card__image{
+    object-fit: cover;
+    box-sizing: border-box;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.card__name{
+    color: var(--light);
+    position: absolute;
+    bottom:0;
+    z-index: 10;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: .6rem;
+    height: 20%;
+    font-size: var(--font-m);
+    background-color: rgba(26, 25, 25, 0.6);
+    border-radius: 0rem 0rem 1rem 1rem;
+}

@@ -1,0 +1,57 @@
+.tabContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabHeaders {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    column-gap: 6.8rem;
+}
+
+.tabHeader {
+    position: relative;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    color: var(--black, #141414);
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.tabHeader:hover {
+    background-color: #f0f0f0;
+}
+
+.tabHeader.active {
+    /*font-weight: bold;*/
+    color: var(--primary);
+}
+.tabHeader.active:after{
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    position: absolute;
+    top: 5rem;
+}
+
+.tabContent {
+    margin-top: 6.4rem;
+    padding: 20px;
+    background-color: #fff;
+}

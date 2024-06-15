@@ -5,6 +5,8 @@ import {
   RouterProvider
 } from "react-router-dom";
 import Hero from "./pages/hero.jsx";
+import {useEffect} from "react";
+import {useActions} from "./hooks/useActions.jsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>
@@ -14,6 +16,10 @@ const router = createBrowserRouter(createRoutesFromElements(
 
 
 function App() {
+  const   {fetchAllTours} = useActions()
+    useEffect(() => {
+        fetchAllTours();
+    },[])
 
   return <RouterProvider router={router} />
 }
