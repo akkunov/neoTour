@@ -3,8 +3,9 @@ import {useLocation, useNavigate, useParams} from "react-router-dom";
 import style from './detailTour.module.css';
 import Reviews from "../components/reviews/reviews.jsx";
 import ModalC from "../components/modal/Modal.jsx";
-import MessageModal from "../components/modal/messageModal/messageModal.jsx";
-import ArrowLeft from '../assets/icon/arrow-left.svg';
+import MessageModal from "../components/modal/messageModal/messageModal.jsx";4
+
+import ArrowLeft from '../assets/icon/arrowLeft.svg';
 import Marker from '../assets/icon/marker.svg';
 
 
@@ -19,14 +20,16 @@ function DetailTour(props) {
     useEffect(() => {
         window.scrollTo(0, 0);
     },[pathname])
+
+
     return (
         <div className={style.wrapper}>
             <div className={style.background} >
-                <img src="https://th.bing.com/th/id/OIP.lmpxMI1Ymuj-R9TH8j5zsQHaEK?w=3840&h=2160&rs=1&pid=ImgDetMain" alt="plca img"/>
+                <img src="https://th.bing.com/th/id/OIP.lmpxMI1Ymuj-R9TH8j5zsQHaEK?w=3840&h=2160&rs=1&pid=ImgDetMain" alt="place img"/>
             </div>
 
             <button className={style.goBack_btn} onClick={handleGoBack}>
-                <img src={ArrowLeft} alt="Arrow Left"/>
+                <img src={ArrowLeft} alt="Arrow Left" />
                 Go back
             </button>
             <div className={style.content}>
