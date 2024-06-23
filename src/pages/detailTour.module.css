@@ -1,0 +1,93 @@
+.wrapper{
+    width: 100%;
+    height: auto;
+    position: relative;
+
+}
+.background{
+    width: 100%;
+    height: 65rem;
+}
+.background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.goBack_btn{
+    position: absolute;
+    top: 13.6rem;
+    left: 18.8rem;
+    color: var(--light);
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: Satoshi;
+    font-size: var(--font-xs-s);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    white-space: nowrap;
+}
+.content{
+    position: relative;
+    top: -12rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5.6rem 12rem;
+    border-radius: 4.8rem 4.8rem 0 0;
+    background-color: var(--light);
+}
+.name{
+    color: #000;
+    font-family: Satoshi;
+    font-size: var(--font-b);
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.location{
+    display: inline-flex;
+    column-gap: 0.8rem;
+    align-items: center;
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-xs);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+.descTitle{
+    margin-top: 4.9rem;
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-s);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.desc{
+    max-width: 1205px;
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-xs-s);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 142.3%; /* 25.614px */
+}
+.reviews{
+    margin-top: 4rem;
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-s);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 2rem;
+}
+
+

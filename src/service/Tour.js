@@ -23,6 +23,4 @@ export class Tour{
         return $http(`/tours/by-continent/${continent}`);
     }
 
-
-
 }

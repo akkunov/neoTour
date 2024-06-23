@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .tabHeaders {
@@ -30,6 +31,7 @@
     font-weight: 400;
     line-height: normal;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .tabHeader:hover {
@@ -51,7 +53,15 @@
 }
 
 .tabContent {
+
     margin-top: 6.4rem;
     padding: 20px;
     background-color: #fff;
+    display: flex;
+    column-gap: 2.4rem;
+    flex-direction: row;
+    overflow-y: scroll; /* Прокрутка содержимого */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+
 }

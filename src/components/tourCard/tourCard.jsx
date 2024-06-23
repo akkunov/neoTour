@@ -4,19 +4,32 @@ import {Link} from "react-router-dom";
 function TourCard({
      name,
     image,
-    width,
-    height,
+    onDragStart,
+    type,
+    id
     }) {
-    return (
-        <Link>
-            <div className={style.card} style={{width, height}}>
-                <img className={style.card__image} src={image}  style={{width, height}}/>
-                <span className={style.card__name}>{name}</span>
-            </div>
-        </Link>
+
+    if (type=='discover')
+        return (
+            <Link onDragStart={onDragStart} to={`/${id}`}>
+                <div className={style.dcard} >
+                    <img className={style.card__image} src={image}  />
+                    <span className={style.dcard__name}>{name}</span>
+                </div>
+            </Link>
+        );
+    if(type== 'recommended'){
+        return (
+            <Link onDragStart={onDragStart}  to={`/${id}`}>
+                <div className={style.rcard} >
+                    <img className={style.card__image} src={image}  />
+                    <span className={style.rcard__name}>{name}</span>
+                </div>
+            </Link>
+        );
+    }
 
 
-    );
 }
 
 export default TourCard;

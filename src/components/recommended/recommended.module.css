@@ -1,0 +1,33 @@
+.rec{
+    margin-top: 13.2rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding:1rem 12rem 0 12rem;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.recHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.title{
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-l);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.recContent{
+    margin-top: 8.2rem;
+    gap:3.2rem ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

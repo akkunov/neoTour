@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './hero.module.css';
-import TourCard from "../components/tourCard/tourCard.jsx";
 import Discover from "../components/category/discover/discover.jsx";
+import Recommended from "../components/recommended/recommended.jsx";
 
 function Hero(props) {
     return (
@@ -26,6 +26,7 @@ function Hero(props) {
                 </div>
             </main>
             <Discover />
+            <Recommended/>
         </>
 
     );

@@ -1,0 +1,69 @@
+.formContainer{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.phoneLabel,
+.commentLabel,
+.peopleTitle{
+    width: 85%;
+    text-align: left;
+    color: var(--gray, #888);
+    font-family: Satoshi;
+    font-size: var(--font-xs);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.commentLabel{
+    margin-top: 2.4rem;
+}
+.phone,
+.comment{
+    display: flex;
+    height: 4rem;
+    width: 85%;
+    padding: 0.625rem 1.25rem;
+    align-items: center;
+    border-radius: 6.25rem;
+    font-size: var(--font-xs-s);
+    border: 1px solid var(--input-gray, #636363);
+}
+.btnContainer{
+    width: 90%;
+    height: 3rem;
+    margin-top: 6rem;
+}
+
+.peopleContainer{
+    margin-top: 2.4rem;
+    width: 85%;
+}
+
+.counters{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    background-color: #F3F3F3;
+    width: fit-content;
+    border-radius: 16px;
+    align-items: center;
+    column-gap: 1.7rem;
+}
+.counterM,
+.counterP{
+    width: 42px;
+    height: 48px;
+    background-color: #897CFF;
+    border-radius: 16px;
+    border:none;
+}
+.count{
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

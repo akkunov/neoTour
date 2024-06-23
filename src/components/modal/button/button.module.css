@@ -1,0 +1,29 @@
+.bookBtn{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rem;
+    background: var(--primary, #6A62B7);
+    border: none;
+    color: var(--light, #FFF);
+    font-family: Satoshi;
+    font-size: var(--font-s);
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    transition: background-color 200ms ease;
+}
+
+.bookBtn:hover, .bookBtn:active{
+    background-color: #8c90ff;
+}
+.bookBtn:not(hover):active{
+    background-color: #8c90ff;
+}
+
+.bookBtn:disabled{
+    background-color: var(--gray);
+    pointer-events: none;
+}

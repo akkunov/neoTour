@@ -1,0 +1,46 @@
+
+.book__container{
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    height: 4rem;
+    transform: translateX(-50%);
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container{
+    padding: 2.5rem;
+    box-sizing: border-box;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.header__title{
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-m);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.close__btn{
+    background-color: transparent;
+    border: none;
+    width: 2.25rem;
+    height: 2.25rem;
+}
+.desc{
+    margin-top: 2rem;
+    color: var(--black, #141414);
+    font-family: Satoshi;
+    font-size: var(--font-xs-s);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
