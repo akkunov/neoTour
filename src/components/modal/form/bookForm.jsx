@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import MinusSvg from '../../../assets/icon/minus.svg'
+import PlusSvg from '../../../assets/icon/plus.svg'
 import style from "./bookForm.module.css";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/material.css';
@@ -66,11 +68,11 @@ function BookForm({ handleSubmit }) {
                     <span className={style.peopleTitle}>Number of People</span>
                     <div className={style.counters}>
                         <Button styles={countBtnStyle} onClick={handleMinus}>
-                            <img src="/src/assets/icon/minus.svg" alt="minus icon"/>
+                            <img src={MinusSvg} alt="minus icon"/>
                         </Button>
                         <span className={style.count}>{count}</span>
                         <Button styles={countBtnStyle} onClick={handlePlus}>
-                            <img src="/src/assets/icon/plus.svg" alt="plus icon"/>
+                            <img src={PlusSvg} alt="plus icon"/>
                         </Button>
                     </div>
                 </div>

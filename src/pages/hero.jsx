@@ -2,6 +2,8 @@ import React from 'react';
 import style from './hero.module.css';
 import Discover from "../components/category/discover/discover.jsx";
 import Recommended from "../components/recommended/recommended.jsx";
+import HeroImg from "../assets/svg/hero.svg";
+import ArrowRight from "../assets/icon/arrow-right.svg";
 
 function Hero(props) {
     return (
@@ -18,11 +20,11 @@ function Hero(props) {
                     </p>
                     <button className={style.lets_btn}>
                         Let’s Go!s
-                        <img src="/src/assets/icon/arrow-right.svg" alt=""/>
+                        <img src={ArrowRight} alt=" Arrow Right"/>
                     </button>
                 </div>
                 <div className={style.img_block}>
-                    <img src="src/assets/svg/hero.svg" alt="hero img"/>
+                    <img src={HeroImg} alt="hero img"/>
                 </div>
             </main>
             <Discover />

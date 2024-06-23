@@ -4,6 +4,9 @@ import style from './detailTour.module.css';
 import Reviews from "../components/reviews/reviews.jsx";
 import ModalC from "../components/modal/Modal.jsx";
 import MessageModal from "../components/modal/messageModal/messageModal.jsx";
+import ArrowLeft from '../assets/icon/arrow-left.svg';
+import Marker from '../assets/icon/marker.svg';
+
 
 function DetailTour(props) {
     const {id} = useParams()
@@ -23,7 +26,7 @@ function DetailTour(props) {
             </div>
 
             <button className={style.goBack_btn} onClick={handleGoBack}>
-                <img src="/src/assets/icon/arrow-left.svg" alt=""/>
+                <img src={ArrowLeft} alt="Arrow Left"/>
                 Go back
             </button>
             <div className={style.content}>
@@ -31,7 +34,7 @@ function DetailTour(props) {
                     Mount Fuji
                 </h1>
                 <div className={style.location}>
-                    <img src="src/assets/icon/marker.svg" alt=""/>
+                    <img src={Marker} alt=" marker icon"/>
                     Honshu, Japan
                 </div>
                 <h3 className={style.descTitle}>Description</h3>
