@@ -60,7 +60,6 @@ const tourSlice = createSlice({
 
             })
             .addCase(getRecommendedTours.fulfilled, (state, action) => {
-                console.log(action.payload)
                 state.recommended.data = action.payload
                 state.recommended.isLoading = false;
                 state.recommended.data = action.payload;
@@ -76,7 +75,6 @@ const tourSlice = createSlice({
 
             })
             .addCase(getToursById.fulfilled, (state, action) => {
-                console.log(action.payload)
                 state.tour.data = action.payload
                 state.tour.isLoading = false;
                 state.tour.data = action.payload;

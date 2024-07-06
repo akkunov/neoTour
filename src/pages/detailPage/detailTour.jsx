@@ -54,8 +54,9 @@ function DetailTour(props) {
                 <h3 className={style.reviews}>
                     Reviews
                 </h3>
-                {tour.data?.reviews && tour.data.reviews.map((item) => (
-                    <Reviews {...item} key={item.id}/>
+                {tour.data?.reviews && tour.data.reviews.map((item ,index) => (
+                        <Reviews {...item} key={index}/>
+
                     )
                 )}
 
