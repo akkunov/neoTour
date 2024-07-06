@@ -1,15 +1,17 @@
 import React, {useEffect} from 'react';
 import style from './recommended.module.css'
-import Tab from "../tab/tab.jsx";
 import {useSelector} from "react-redux";
 import TourCard from "../tourCard/tourCard.jsx";
 import {useActions} from "../../hooks/useActions.jsx";
-import {RECOMMENDED} from "../../service/consts.js";
+import {getRecommendedTours} from "../../store/tourThunks.js";
+
+
+
 function Recommended(props) {
     const {recommended}=useSelector(state => state.tours);
     const {getToursByCategory} = useActions();
     useEffect(()=> {
-        getToursByCategory(RECOMMENDED);
+        getRecommendedTours();
     },[])
     return (
         <div className={style.rec}>

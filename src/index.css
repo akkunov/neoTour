@@ -28,3 +28,27 @@ body{
 html{
     font-size: 10px;
 }
+
+@media (max-width: 1025px) {
+    :root{
+        --font-xs: 1.6rem;
+        --font-xs-s: 1.8rem;
+        --font-s: 2.4rem;
+        --font-m: 2.8rem;
+        --font-l: 4.8rem;
+        --font-xxl: 6rem;
+        --font-b: 5rem;
+    }
+}
+
+@media (max-width: 870px) {
+    :root{
+        --font-xs: 1.4rem;
+        --font-xs-s: 1.6rem;
+        --font-s: 2rem;
+        --font-m: 2.4rem;
+        --font-l: 4rem;
+        --font-xxl: 5rem;
+        --font-b: 4rem;
+    }
+}

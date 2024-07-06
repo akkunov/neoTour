@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {Tour} from "../service/Tour.js";
+import {RECOMMENDED} from "../service/consts.js";
 
 export const getToursByCategory =  createAsyncThunk(
     'tours/getToursByCategory',
@@ -10,6 +11,20 @@ export const getToursByCategory =  createAsyncThunk(
                 throw new Error('response error', response)
             }
             return {category, data: response.data}
+        }catch (e) {
+            return rejectWithValue(e.response);
+        }
+    }
+)
+export const getRecommendedTours =  createAsyncThunk(
+    'tours/getRecommendedTours',
+    async (category, {rejectWithValue}) => {
+        try {
+            const response = await Tour.getToursByCategory(RECOMMENDED);
+            if (!response.ok){
+                throw new Error('response error', response)
+            }
+            return response.data
         }catch (e) {
             return rejectWithValue(e.response);
         }
