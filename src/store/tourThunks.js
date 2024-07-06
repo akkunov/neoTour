@@ -12,7 +12,7 @@ export const getToursByCategory =  createAsyncThunk(
             }
             return {category, data: response.data}
         }catch (e) {
-            return rejectWithValue(e.response);
+            return rejectWithValue({category, data:e.response});
         }
     }
 )

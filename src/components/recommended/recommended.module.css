@@ -31,3 +31,9 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+@media (max-width: 1025px) {
+    .rec{
+        padding:2rem ;
+    }
+}

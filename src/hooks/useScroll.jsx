@@ -36,6 +36,7 @@ const useDragScroll = (ref) => {
     };
 
     useEffect(() => {
+        console.log(ref)
         const container = ref.current;
         if (container) {
             container.addEventListener('mousedown', handleMouseDown);
@@ -58,7 +59,7 @@ const useDragScroll = (ref) => {
         }
     }, [isDragging]);
 
-    return { isDragging, setIsDragging };
+    return [isDragging, setIsDragging] ;
 };
 
 export default useDragScroll;

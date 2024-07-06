@@ -1,13 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import styles from './tab.module.css';
 import TourCard from "../tourCard/tourCard.jsx";
 import useScroll from "../../hooks/useScroll.jsx";
 import {useActions} from "../../hooks/useActions.jsx";
+import {POPULAR} from "../../service/consts.js";
 
 const Tab = ({ tabs }) => {
     const [activeTab, setActiveTab] = useState(0);
     const contentRef = useRef(null);
-    const { isDragging, setIsDragging } = useScroll(contentRef);
+    const categoryRef = useRef(null);
+    const [ isDragging, setIsDragging ]= useScroll(contentRef);
+    const [ CisDragging, CsetIsDragging]= useScroll(categoryRef);
     const {getToursByCategory} =  useActions()
 
     const handleTabClick = (index, category) => {
@@ -22,18 +25,26 @@ const Tab = ({ tabs }) => {
         event.preventDefault();
     };
 
+    useEffect(() => {
+        getToursByCategory(POPULAR)
+    },[])
     return (
         <div className={styles.tabContainer}>
             <div className={styles.tabHeaders}>
-                {tabs.map((tab, index) => (
-                    <button
-                        key={index}
-                        className={`${styles.tabHeader} ${activeTab === index ? styles.active : ''}`}
-                        onClick={() => handleTabClick(index,tab.category)}
-                    >
-                        {tab.name}
-                    </button>
-                ))}
+                <ul className={styles.categoryContainer} ref={categoryRef}>
+                    {tabs.map((tab, index) => (
+                        <li key={index}>
+                            <button
+                                className={`${styles.tabHeader} ${activeTab === index ? styles.active : ''}`}
+                                onClick={() => handleTabClick(index,tab.category)}
+                            >
+                                {tab.name}
+                            </button>
+                        </li>
+
+                    ))}
+                </ul>
+
             </div>
             <div className={styles.tabContent} ref={contentRef}>
                 {tabs[activeTab].data.map((items) => (

@@ -52,16 +52,25 @@
     top: 5rem;
 }
 
-.tabContent {
+.categoryContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
+}
+
+.tabContent {
     margin-top: 6.4rem;
     padding: 20px;
     background-color: #fff;
     display: flex;
     column-gap: 2.4rem;
     flex-direction: row;
-    overflow-y: scroll; /* Прокрутка содержимого */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
 }
