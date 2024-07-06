@@ -1,76 +1,27 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './tab.module.css';
 import TourCard from "../tourCard/tourCard.jsx";
+import useScroll from "../../hooks/useScroll.jsx";
+import {useActions} from "../../hooks/useActions.jsx";
 
 const Tab = ({ tabs }) => {
     const [activeTab, setActiveTab] = useState(0);
-    const [isDragging, setIsDragging] = useState(false);
     const contentRef = useRef(null);
-    const startX = useRef(0);
-    const scrollLeft = useRef(0);
+    const { isDragging, setIsDragging } = useScroll(contentRef);
+    const {getToursByCategory} =  useActions()
 
-    const handleTabClick = (index) => {
+    const handleTabClick = (index, category) => {
         setActiveTab(index);
+        getToursByCategory(category)
         if (contentRef.current) {
-            contentRef.current.scrollTo({ left: 0, behavior: 'smooth' }); // Прокрутка к началу при смене вкладки
+            contentRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         }
     };
 
-    const handleMouseDown = (event) => {
-        setIsDragging(true);
-        startX.current = event.pageX - contentRef.current.offsetLeft;
-        scrollLeft.current = contentRef.current.scrollLeft;
-    };
-
-    const handleMouseMove = (event) => {
-        if (!isDragging) return;
-        event.preventDefault();
-        const x = event.pageX - contentRef.current.offsetLeft;
-        const walk = (x - startX.current) * 2; // Скорость прокрутки
-        contentRef.current.scrollLeft = scrollLeft.current - walk;
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleTouchStart = (event) => {
-        startX.current = event.touches[0].pageX;
-        scrollLeft.current = contentRef.current.scrollLeft;
-    };
-
-    const handleTouchMove = (event) => {
-        if (!isDragging) return;
-        const x = event.touches[0].pageX;
-        const walk = (x - startX.current) * 2; // Скорость прокрутки
-        contentRef.current.scrollLeft = scrollLeft.current - walk;
-    };
-
-    useEffect(() => {
-        const container = contentRef.current;
-        if (container) {
-            container.addEventListener('mousedown', handleMouseDown);
-            container.addEventListener('mousemove', handleMouseMove);
-            container.addEventListener('mouseup', handleMouseUp);
-            container.addEventListener('mouseleave', handleMouseUp); // Прекращение прокрутки при выходе курсора за пределы контейнера
-            container.addEventListener('touchstart', handleTouchStart);
-            container.addEventListener('touchmove', handleTouchMove);
-            container.addEventListener('touchend', handleMouseUp);
-
-            return () => {
-                container.removeEventListener('mousedown', handleMouseDown);
-                container.removeEventListener('mousemove', handleMouseMove);
-                container.removeEventListener('mouseup', handleMouseUp);
-                container.removeEventListener('mouseleave', handleMouseUp);
-                container.removeEventListener('touchstart', handleTouchStart);
-                container.removeEventListener('touchmove', handleTouchMove);
-                container.removeEventListener('touchend', handleMouseUp);
-            };
-        }
-    }, [isDragging]);
     const preventLinkDrag = (event) => {
         event.preventDefault();
     };
+
     return (
         <div className={styles.tabContainer}>
             <div className={styles.tabHeaders}>
@@ -78,7 +29,7 @@ const Tab = ({ tabs }) => {
                     <button
                         key={index}
                         className={`${styles.tabHeader} ${activeTab === index ? styles.active : ''}`}
-                        onClick={() => handleTabClick(index)}
+                        onClick={() => handleTabClick(index,tab.category)}
                     >
                         {tab.name}
                     </button>
@@ -90,7 +41,8 @@ const Tab = ({ tabs }) => {
                         {...items}
                         key={items.id}
                         type={'discover'}
-                        onDragStart={preventLinkDrag}  />
+                        onDragStart={preventLinkDrag}
+                    />
                 ))}
             </div>
         </div>

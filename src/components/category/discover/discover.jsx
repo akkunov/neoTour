@@ -10,10 +10,10 @@ function Discover(props) {
         <div className={style.discover}>
             <div className={style.discoverHeader}>
                 <h2 className={style.title}>
-                    {discover.name}
+                    Discover
                 </h2>
             </div>
-                <Tab tabs={discover.category} />
+                <Tab tabs={discover.categories} />
         </div>
     );
 }
