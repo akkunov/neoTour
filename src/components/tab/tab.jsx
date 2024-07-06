@@ -28,12 +28,14 @@ const Tab = ({ tabs }) => {
     useEffect(() => {
         getToursByCategory(POPULAR)
     },[])
+
+    
     return (
         <div className={styles.tabContainer}>
             <div className={styles.tabHeaders}>
                 <ul className={styles.categoryContainer} ref={categoryRef}>
                     {tabs.map((tab, index) => (
-                        <li key={index}>
+                        <li key={index} className={styles.categoryContainerList}>
                             <button
                                 className={`${styles.tabHeader} ${activeTab === index ? styles.active : ''}`}
                                 onClick={() => handleTabClick(index,tab.category)}
@@ -44,17 +46,17 @@ const Tab = ({ tabs }) => {
 
                     ))}
                 </ul>
-
             </div>
             <div className={styles.tabContent} ref={contentRef}>
-                {tabs[activeTab].data.map((items) => (
-                    <TourCard
-                        {...items}
-                        key={items.id}
-                        type={'discover'}
-                        onDragStart={preventLinkDrag}
-                    />
-                ))}
+                {tabs[activeTab].error ?  <span>{tabs[activeTab].error}</span> :
+                    tabs[activeTab].data.map((items) => (
+                        <TourCard
+                            {...items}
+                            key={items.id}
+                            type={'discover'}
+                            onDragStart={preventLinkDrag}
+                        />
+                    ))}
             </div>
         </div>
     );

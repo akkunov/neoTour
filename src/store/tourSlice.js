@@ -33,7 +33,7 @@ const tourSlice = createSlice({
                 }
             })
             .addCase(getToursByCategory.fulfilled, (state, action) => {
-                const category = state.discover.categories.find(cat => cat.name === action.payload.category);
+                const category = state.discover.categories.find(cat => cat.category === action.payload.category);
                 if (category) {
                     category.isLoading = false;
                     category.data = action.payload.data;
@@ -42,8 +42,9 @@ const tourSlice = createSlice({
             .addCase(getToursByCategory.rejected, (state, action) => {
                 const category = state.discover.categories.find(cat => cat.name === action.payload.category);
                 if (category) {
+                    console.log(action.payload)
                     category.isLoading = false;
-                    category.error = action.payload.error;
+                    category.error = action.payload.error || 'Ошибка при загрурзке';
                 }
             })
             .addCase(getRecommendedTours.pending, (state, action) => {
@@ -52,14 +53,15 @@ const tourSlice = createSlice({
 
             })
             .addCase(getRecommendedTours.fulfilled, (state, action) => {
+                console.log(action.payload)
                 state.recommended.data = action.payload
                 state.recommended.isLoading = false;
-                state.recommended.data = action.payload.data;
+                state.recommended.data = action.payload;
 
             })
             .addCase(getRecommendedTours.rejected, (state, action) => {
                 state.recommended.isLoading = false;
-                state.recommended.error = action.payload.error;
+                state.recommended.error = action.payload?.error || 'Ошибка при загрурзке';
             });
 
     }

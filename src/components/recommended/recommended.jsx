@@ -3,13 +3,13 @@ import style from './recommended.module.css'
 import {useSelector} from "react-redux";
 import TourCard from "../tourCard/tourCard.jsx";
 import {useActions} from "../../hooks/useActions.jsx";
-import {getRecommendedTours} from "../../store/tourThunks.js";
 
 
 
 function Recommended(props) {
     const {recommended}=useSelector(state => state.tours);
-    const {getToursByCategory} = useActions();
+    const {getRecommendedTours} = useActions();
+
     useEffect(()=> {
         getRecommendedTours();
     },[])
