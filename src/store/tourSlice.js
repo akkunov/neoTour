@@ -1,6 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getRecommendedTours, getToursByCategory} from "./tourThunks.js";
+import {getRecommendedTours, getToursByCategory, getToursById} from "./tourThunks.js";
 import {ASIA, EUROPE, FEATURED, MOST_VISITED, POPULAR} from "../service/consts.js";
+
+const reviews = []
 
 
 const initialState = {
@@ -18,6 +20,11 @@ const initialState = {
         error: null,
         isLoading: false
     },
+    tour: {
+        data: null,
+        error: null,
+        isLoading: false
+    }
 }
 const tourSlice = createSlice({
     name: 'tours',
@@ -48,8 +55,8 @@ const tourSlice = createSlice({
                 }
             })
             .addCase(getRecommendedTours.pending, (state, action) => {
-                    state.recommended.isLoading = true;
-                    state.recommended.error = null;
+                state.recommended.isLoading = true;
+                state.recommended.error = null;
 
             })
             .addCase(getRecommendedTours.fulfilled, (state, action) => {
@@ -62,8 +69,23 @@ const tourSlice = createSlice({
             .addCase(getRecommendedTours.rejected, (state, action) => {
                 state.recommended.isLoading = false;
                 state.recommended.error = action.payload?.error || 'Ошибка при загрурзке';
-            });
+            })
+            .addCase(getToursById.pending, (state, action) => {
+                state.tour.isLoading = true;
+                state.tour.error = null;
 
+            })
+            .addCase(getToursById.fulfilled, (state, action) => {
+                console.log(action.payload)
+                state.tour.data = action.payload
+                state.tour.isLoading = false;
+                state.tour.data = action.payload;
+
+            })
+            .addCase(getToursById.rejected, (state, action) => {
+                state.tour.isLoading = false;
+                state.tour.error = action.payload?.error || 'Ошибка при загрурзке';
+            });
     }
 })
 export default tourSlice.reducer

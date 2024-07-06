@@ -1,31 +1,38 @@
 import React, {useEffect} from 'react';
 import {useLocation, useNavigate, useParams} from "react-router-dom";
-import style from './detailTour.module.css';
-import Reviews from "../components/reviews/reviews.jsx";
-import ModalC from "../components/modal/Modal.jsx";
-import MessageModal from "../components/modal/messageModal/messageModal.jsx";4
+import {useActions} from "../../hooks/useActions.jsx";
 
-import ArrowLeft from '../assets/icon/arrowLeft.svg';
-import Marker from '../assets/icon/marker.svg';
+import style from './detailTour.module.css';
+
+import Reviews from "../../components/reviews/reviews.jsx";
+import ModalC from "../../components/modal/Modal.jsx";
+import MessageModal from "../../components/modal/messageModal/messageModal.jsx";4
+
+import ArrowLeft from '../../assets/icon/arrowLeft.svg';
+import Marker from '../../assets/icon/marker.svg';
+import {useSelector} from "react-redux";
+
 
 
 function DetailTour(props) {
     const {id} = useParams()
     const navigate = useNavigate();
     const { pathname } = useLocation();
+    const {getToursById} = useActions();
+    const {tour} = useSelector(state => state.tours)
     const handleGoBack = () => {
         navigate(-1); // Навигация назад
     };
-
     useEffect(() => {
         window.scrollTo(0, 0);
+        getToursById(id)
     },[pathname])
 
 
     return (
         <div className={style.wrapper}>
             <div className={style.background} >
-                <img src="https://th.bing.com/th/id/OIP.lmpxMI1Ymuj-R9TH8j5zsQHaEK?w=3840&h=2160&rs=1&pid=ImgDetMain" alt="place img"/>
+                <img src={tour.data?.images[0]} alt="place img"/>
             </div>
 
             <button className={style.goBack_btn} onClick={handleGoBack}>
@@ -34,24 +41,24 @@ function DetailTour(props) {
             </button>
             <div className={style.content}>
                 <h1 className={style.name}>
-                    Mount Fuji
+                    {tour.data?.name}
                 </h1>
                 <div className={style.location}>
                     <img src={Marker} alt=" marker icon"/>
-                    Honshu, Japan
+                    {tour.data?.location}, {tour.data?.country}
                 </div>
                 <h3 className={style.descTitle}>Description</h3>
                 <p className={style.desc}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Dignissim eget amet viverra eget fames rhoncus.
-                    Eget enim venenatis enim porta egestas malesuada et.
-                    Consequat mauris lacus euismod montes.
+                    {tour.data?.description}
                 </p>
                 <h3 className={style.reviews}>
                     Reviews
                 </h3>
-                <Reviews  name={'Anonymous'} ico={'https://th.bing.com/th/id/OIF.woYBASQiPVfTOrNSReIEjA?rs=1&pid=ImgDetMain'}/>
-                <Reviews  name={'Anonymous'} ico={'https://th.bing.com/th/id/OIF.woYBASQiPVfTOrNSReIEjA?rs=1&pid=ImgDetMain'}/>
+                {tour.data?.reviews && tour.data.reviews.map((item) => (
+                    <Reviews {...item} key={item.id}/>
+                    )
+                )}
+
             </div>
 
             <ModalC />

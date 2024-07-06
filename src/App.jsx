@@ -4,9 +4,9 @@ import {
   Route,
   RouterProvider
 } from "react-router-dom";
-import Hero from "./pages/hero.jsx";
+import Hero from "./pages/main/hero.jsx";
 
-import DetailTour from "./pages/detailTour.jsx";
+import DetailTour from "./pages/detailPage/detailTour.jsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>

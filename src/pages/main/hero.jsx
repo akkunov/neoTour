@@ -1,9 +1,9 @@
 import React from 'react';
 import style from './hero.module.css';
-import Discover from "../components/category/discover/discover.jsx";
-import Recommended from "../components/recommended/recommended.jsx";
-import HeroImg from "../assets/svg/hero.svg";
-import ArrowRight from "../assets/icon/arrow-right.svg";
+import Discover from "../../components/category/discover/discover.jsx";
+import Recommended from "../../components/recommended/recommended.jsx";
+import HeroImg from "../../assets/svg/hero.svg";
+import ArrowRight from "../../assets/icon/arrow-right.svg";
 
 function Hero(props) {
     return (
