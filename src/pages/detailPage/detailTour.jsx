@@ -18,7 +18,7 @@ function DetailTour(props) {
     const {id} = useParams()
     const navigate = useNavigate();
     const { pathname } = useLocation();
-    const {getToursById} = useActions();
+    const {getToursById,bookTrip} = useActions();
     const {tour} = useSelector(state => state.tours)
     const handleGoBack = () => {
         navigate(-1); // Навигация назад
@@ -28,7 +28,16 @@ function DetailTour(props) {
         getToursById(id)
     },[pathname])
 
-
+    function bookTripSubmit (data){
+        console.log(data)
+        const formattedData  = {
+            phone:data.number,
+            people_amount: data.count,
+            comment: data.message,
+            tourId:tour.data.id
+        };
+        bookTrip(formattedData)
+    }
     return (
         <div className={style.wrapper}>
             <div className={style.background} >
@@ -62,7 +71,7 @@ function DetailTour(props) {
 
             </div>
 
-            <ModalC />
+            <ModalC submit={bookTripSubmit}/>
             <MessageModal />
 
         </div>

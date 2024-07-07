@@ -56,3 +56,18 @@
 .rcard__name{
     font-size: var(--font-xs-s) ;
 }
+
+
+@media (max-width: 1024px) {
+    .dcard{
+        width: 25vw;
+        height: 20vh;
+        min-width: 16rem;
+    }
+    .rcard{
+        width: 20vw;
+        height: 20vh;
+        min-width: 14rem;
+    }
+
+}

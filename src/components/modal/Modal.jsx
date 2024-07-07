@@ -6,28 +6,10 @@ import Button from "./button/button.jsx";
 import BookForm from "./form/bookForm.jsx";
 
 
-const customStyles = {
-    content: {
-        width: "614px",
-        height: "683px",
-        borderRadius: "48px",
-        border: "none",
-        background: "#FFF",
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        boxSizing: 'border-box'
-    },
-};
 
 
-function ModalC(props) {
+function ModalC({submit}) {
     const [modalIsOpen, setIsOpen] = React.useState(false);
-
-
     function openModal() {
         setIsOpen(true);
     }
@@ -37,8 +19,8 @@ function ModalC(props) {
         setIsOpen(false);
     }
 
-    function handleSubmit(){
-
+    function handleSubmit(data){
+        submit(data)
         closeModal()
     }
 
@@ -50,10 +32,10 @@ function ModalC(props) {
                 </Button>
             </div>
             <Modal
+                className={style.customStyles}
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
-                style={customStyles}
                 contentLabel="Example Modal"
             >
                 <div className={style.container}>

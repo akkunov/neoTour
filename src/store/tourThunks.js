@@ -7,7 +7,6 @@ export const getToursByCategory =  createAsyncThunk(
     async (category, {rejectWithValue}) => {
         try {
             const response = await Tour.getToursByCategory(category);
-            console.log(response)
             if (response.status !== 200){
                 throw new Error('response error', response)
             }
@@ -46,3 +45,21 @@ export const getToursById = createAsyncThunk(
         }
     }
 )
+
+
+
+export const bookTrip = createAsyncThunk(
+    'book/addBook',
+    async(data, {rejectWithValue})=>{
+        try {
+            const response = await Tour.addBook(data);
+            if(response.status !== 200)
+                throw new Error('request error', response);
+            return response.data
+
+        }catch (e) {
+            return rejectWithValue(e.response);
+        }
+    }
+)
+

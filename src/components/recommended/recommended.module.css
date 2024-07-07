@@ -26,14 +26,16 @@
 
 .recContent{
     margin-top: 8.2rem;
-    gap:3.2rem ;
+    gap:2rem ;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 @media (max-width: 1025px) {
     .rec{
         padding:2rem ;
     }
+
 }

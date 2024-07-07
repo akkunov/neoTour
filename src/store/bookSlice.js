@@ -1,11 +1,19 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import {bookTrip} from "./tourThunks.js";
+
 
 
 const bookFormSlice = createSlice({
-    name: 'bookForm',
+    name: 'book',
     initialState: {
-
-        status: 'idle', // idle | loading | succeeded | failed
+        status: 'idle',
+        isModalOpen: false,
+        modalMessage: null,
+    },
+    reducers: {
+        closeModal: (state) => {
+            state.isModalOpen = false
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -25,6 +33,5 @@ const bookFormSlice = createSlice({
     },
 });
 
-export const { setNumber, setMessage, incrementCount, decrementCount, closeModal } = bookFormSlice.actions;
-
+export const {closeModal}  = bookFormSlice.actions
 export default bookFormSlice.reducer;
